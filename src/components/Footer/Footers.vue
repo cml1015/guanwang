@@ -5,7 +5,7 @@
           <div class="top">
             <div class="telus">
               <p>联系我们<br>CONTACT US</p>
-              <p>关于我们<br>ABOUT US</p>
+              <p><router-link to="Aboutus">关于我们<br>ABOUT US</router-link></p>
             </div>
           </div>
           <div class="middle">
@@ -44,6 +44,10 @@
 </script>
 
 <style scoped>
+  a{
+    color:#fff;
+    text-decoration: none;
+  }
   .footers{
     width:100%;
     height:400px;

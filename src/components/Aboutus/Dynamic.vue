@@ -6,37 +6,20 @@
         <p>COMPANY DYNAMIC</p>
       </div>
       <div class="dymain">
-        <dl>
-          <dt><img src="../../../static/images/dyimg.png" alt=""></dt>
+        <dl v-for="(item,index) in dynamic">
+          <router-link :to="{name:'Dynamicdetail',params:{id:item.id}}">
+          <dt><img v-bind:src="item.imgSrc" alt=""></dt>
           <dd>
             <h6>有心科技出席中国老年保健协会第五届第一次分支机构座谈会</h6>
-            <h5>02-01</h5>
-            <div class="year">2018</div>
+            <h5>{{item.month}}</h5>
+            <div class="year">{{item.year}}</div>
             <div class="heng">—</div>
-            <p>2017年12月29日，中国老年保健协会第五届第一次分支机构座谈会在京举行。协会会长刘远立、监事长耿和荪，及各分支机构负责人共60余人参加本次座谈会，会议由协会副会长兼秘书长俞华主持。</p>
+            <p>{{item.content}}</p>
           </dd>
+          </router-link>
         </dl>
-        <dl>
-          <dt><img src="../../../static/images/dyimg.png" alt=""></dt>
-          <dd>
-            <h6>有心科技出席中国老年保健协会第五届第一次分支机构座谈会</h6>
-            <h5>02-01</h5>
-            <div>2018</div>
-            <div>-</div>
-            <p>2017年12月29日，中国老年保健协会第五届第一次分支机构座谈会在京举行。协会会长刘远立、监事长耿和荪，及各分支机构负责人共60余人参加本次座谈会，会议由协会副会长兼秘书长俞华主持。</p>
-          </dd>
-        </dl>
-        <dl>
-          <dt><img src="../../../static/images/dyimg.png" alt=""></dt>
-          <dd>
-            <h6>有心科技出席中国老年保健协会第五届第一次分支机构座谈会</h6>
-            <h5>02-01</h5>
-            <div>2018</div>
-            <div>-</div>
-            <p>2017年12月29日，中国老年保健协会第五届第一次分支机构座谈会在京举行。协会会长刘远立、监事长耿和荪，及各分支机构负责人共60余人参加本次座谈会，会议由协会副会长兼秘书长俞华主持。</p>
-          </dd>
-        </dl>
-        <div class="page">
+
+        <div class="pageul">
           <ul>
             <li><</li>
             <li class="blueli">1</li>
@@ -54,7 +37,25 @@
 
 <script>
   export default {
-    name: "dynamic"
+    name: "dynamic",
+    data(){
+      return{
+        dynamic:{}
+      }
+    },
+    created(){
+      this.menu();
+      this.$http.get('http://192.168.1.140:8080/api/dynamic').then((response) => {
+        //console.log(response.data.data)
+        this.dynamic=response.data.data
+       // console.log(this.dynamic)
+      });
+    },
+    methods:{
+      menu(){
+        window.scrollTo(0,0)
+      }
+    }
   }
 </script>
 
@@ -65,6 +66,11 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+  }
+  a{
+    display:inline-block;
+    width:100%;
+    height:100%;
   }
   .dycontent{
     width:100%;
@@ -131,7 +137,7 @@
     color:#999999;
     padding-right:25%;
   }
-  .dycontent .dymain .page{
+  .dycontent .dymain .pageul{
     width:100%;
     height:30px;
     margin:30px 0px;

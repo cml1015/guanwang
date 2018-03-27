@@ -4,13 +4,13 @@
       <div class="democontent">
         <div class="demovideo">
           <dl v-for="item in list.data">
-            <dt><img v-bind:src="item.imgSrc" alt=""><div></div></dt>
+            <router-link :to="{name:'Demodetail',params:{id:item.id}}"><dt><img v-bind:src="item.imgSrc" alt=""><div></div></dt></router-link>
             <dd>
               <p>{{item.content}}</p>
             </dd>
           </dl>
         </div>
-        <div class="page">
+        <div class="pageul">
           <ul>
             <li><</li>
             <li class="blueli">1</li>
@@ -39,7 +39,7 @@
           }
         },
         created(){
-          this.$http.get('http://localhost:8080/api/democenter').then((response) => {
+          this.$http.get('http://192.168.1.140:8080/api/democenter').then((response) => {
             this.list=response.data
             //console.log(this.list.data)
           });
@@ -64,6 +64,9 @@
   a{
     color:#000;
     text-decoration: none;
+    display:block;
+    width:100%;
+    height:100%;
   }
   .demobanner{
     width:100%;
@@ -87,6 +90,7 @@
     width:30%;
     height:100%;
     margin:10px 10px;
+    cursor:pointer;
   }
   .democontent .demovideo dl dt{
     position:relative;
@@ -110,18 +114,19 @@
   .democontent .demovideo img{
     width:100%;
     height:100%;
+    display:inline;
   }
-  .democontent .page{
+  .democontent .pageul{
     width:100%;
     height:30px;
     margin:30px 0px;
   }
-  .democontent .page ul{
+  .democontent .pageul ul{
     width:35%;
     height:30px;
     float:right;
   }
-  .democontent .page ul li{
+  .democontent .pageul ul li{
     float:left;
     width:30px;
     height:30px;
@@ -130,8 +135,9 @@
     background:#bbbbbb;
     margin:0 5px;
     color:#fff;
+    cursor:pointer;
   }
-  .democontent .page ul li.blueli{
+  .democontent .pageul ul li.blueli{
     background:#499fe3;
   }
 </style>

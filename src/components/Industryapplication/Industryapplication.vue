@@ -6,11 +6,11 @@
             <h3>行业应用案例</h3>
             <p>INDUSTRIAL APPLICATION CASES</p>
           </div>
-        <div class="indmain">
-          <div><img src="../../../static/images/ind.png" alt=""></div>
-          <div><img src="../../../static/images/ind.png" alt=""></div>
-          <div><img src="../../../static/images/ind.png" alt=""></div>
-          <div><img src="../../../static/images/ind.png" alt=""></div>
+        <div class="indmain" >
+          <div class="indbox" v-for="(item,index) in industry" @mouseover="toArticleDetail(index)">
+            <img v-bind:src="item.imgSrc" alt="">
+            <div class="top">{{item.title}}<transition name="fold"><p v-show="activeIndex===index" class="example">{{item.content}}</p></transition></div>
+          </div>
         </div>
       </div>
       <Footers/>
@@ -21,15 +21,35 @@
   import Footers from "../Footer/Footers"
     export default {
         name: "industryapplication",
+        data(){
+          return{
+            active: false,
+            industry:{},
+            isshow:null,
+            activeIndex: -1
+          }
+        },
         components:{
             Footers
         },
         created(){
           this.menu();
+          this.$http.get('http://192.168.1.140:8080/api/industry').then((response) => {
+            this.industry=response.data.data
+          });
         },
         methods:{
           menu(){
             window.scrollTo(0,0)
+          },
+          changeState:function(){
+            this.active=true
+          },
+          changeStates:function(){
+            this.active=false
+          },
+          toArticleDetail(index) {
+            this.activeIndex = index;
           }
         }
     }
@@ -71,17 +91,49 @@
   }
   .indcontent .indmain{
     width:100%;
-    height:300px;
     display:flex;
     margin-bottom:20px;
     padding:0 20px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  .indcontent .indmain div{
-    flex:1;
-    width:150px;
+  .indcontent .indmain .indbox{
+    width:23%;
     height:300px;
-    float:left;
-    margin-right:20px;
+    margin:0px 8px 15px;
+    position:relative;
+    cursor:pointer;
+  }
+  .indcontent .indmain .indbox .top{
+    position:absolute;
+    width:100%;
+    height:auto;
+    background:rgba(0,0,0,0.6);
+    left:0;
+    top:0;
+    color:#fff;
+    font-size:18px;
+    padding:5px 20px;
+  }
+  .indcontent .indmain div .top p{
+    width:100%;
+    height:240px;
+    color:#fff;
+    font-size:14px;
+    position:absolute;
+    left:0;
+    top:60px;
+    padding:20px 15px;
+    background:rgba(0,0,0,0.6);
+    text-align:justify;
+    overflow:hidden;
+  }
+  .indcontent .indmain div p span.hide{
+    display:none;
+  }
+  .indcontent .indmain div p span.show{
+    display:block;
   }
   .indcontent .indmain div:last-child{
     margin-right:0;
@@ -89,5 +141,16 @@
   .indcontent .indmain div img{
     width:100%;
     height:100%;
+  }
+  .example {
+    width: 100px;
+    height: 100px;
+    transform: translate3d(0,0,0);
+  }
+  .fold-enter-active, .fold-leave-active {
+    transition: all .5s;
+  }
+  .fold-enter, .fold-leave-active {
+    transform: translate3d(0,-60px, 0);
   }
 </style>

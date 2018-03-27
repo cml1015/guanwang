@@ -15,7 +15,9 @@ const app = express()
 var appData = require('../data.json')//加载本地数据文件
 var data = appData.data//获取对应的本地数据
 var democenter = appData.democenter
-// var ratings = appData.ratings
+var industry = appData.industry
+var govement = appData.govement
+var dynamic=appData.dynamic
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)
 
@@ -63,6 +65,24 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         res.json({
           error: 0,
           data: democenter
+        })//接口返回json数据，上面配置的数据data就赋值给data请求后调用
+      }),
+      app.get('/api/industry', (req, res) => {
+        res.json({
+          error: 0,
+          data: industry
+        })//接口返回json数据，上面配置的数据data就赋值给data请求后调用
+      }),
+      app.get('/api/govement', (req, res) => {
+        res.json({
+          error: 0,
+          data: govement
+        })//接口返回json数据，上面配置的数据data就赋值给data请求后调用
+      }),
+      app.get('/api/dynamic', (req, res) => {
+        res.json({
+          error: 0,
+          data: dynamic
         })//接口返回json数据，上面配置的数据data就赋值给data请求后调用
       })
     }

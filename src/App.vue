@@ -23,7 +23,13 @@
     list-style:none;
     box-sizing:border-box;
   }
+  html,body{
+    width:100%;
+    height:100%;
+  }
   #app {
+    width:100%;
+    height:100%;
     font-family:"微软雅黑";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

@@ -11,7 +11,9 @@ import Introduction from "../components/Aboutus/Introduction"
 import Dynamic from "../components/Aboutus/Dynamic"
 import Mediareport from "../components/Aboutus/Mediareport"
 import Prolist from "../components/Productpresentation/Prolist"
-
+import Demodetail from "../components/Democenter/Demodetail"
+import Dynamicdetail from "../components/Aboutus/Dynamicdetail"
+import Fullpage from "../components/homepage/fullpage"
 Vue.use(Router)
 
 export default new Router({
@@ -19,22 +21,29 @@ export default new Router({
 
     {
       path: '/',
-      redirect: 'Homepage'
+      redirect: 'Fullpage'
     },
     {
-      path: '/Homepage',
-      component: Homepage
+      path: '/Fullpage',
+      component: Fullpage
     },
     {
       path: '/Democenter',
       component: Democenter
     },
     {
+      path: '/Demodetail/:id',
+      name:"Demodetail",
+      component: Demodetail
+    },
+    {
       path:'/Productpresentation',
-      component:Productpresentation,
-      children:[
-        {path:"/Prolist:id",component:Prolist}
-      ]
+      component:Productpresentation
+    },
+    {
+      path:"/Prolist/:id",
+      name:"Prolist",
+      component:Prolist
     },
     {
       path:"/Industryapplication",
@@ -52,6 +61,11 @@ export default new Router({
         {path:"/Aboutus/Introduction",component:Introduction},
         {path:"/Aboutus/Dynamic",component:Dynamic},
         {path:"/Aboutus/Mediareport",component:Mediareport}]
+    },
+    {
+      path: '/Dynamicdetail/:id',
+      name:"Dynamicdetail",
+      component: Dynamicdetail
     },
     {
       path:"/Joinus",

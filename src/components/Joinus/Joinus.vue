@@ -3,7 +3,7 @@
       <div class="joinbanner"></div>
       <div class="joincontent">
         <div class="jointitle">
-          <h6>简历投递至 hr@datalove.cn</h6>
+          <h6>简历投递至 <a href="mailto:hr@datalove.cn@163.com">hr@datalove.cn</a></h6>
           <p>丰富的团建活动，五险一金齐全，卧虎藏龙的同事伙伴，完善的福利制度。</p>
           <p>你有能力，我们相互学习，你没经验，我们共同进步。</p>
         </div>
@@ -92,7 +92,7 @@
     background-size:80px;
   }
   .joincontent .jointitle h6{
-    font-size:16px;
+    font-size:18px;
     margin-bottom:10px;
   }
   .joincontent .jointitle p{

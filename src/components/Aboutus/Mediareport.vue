@@ -36,7 +36,7 @@
             <p>2017年12月29日，中国老年保健协会第五届第一次分支机构座谈会在京举行。协会会长刘远立、监事长耿和荪，及各分支机构负责人共60余人参加本次座谈会，会议由协会副会长兼秘书长俞华主持。</p>
           </dd>
         </dl>
-        <div class="page">
+        <div class="pageul">
           <ul>
             <li><</li>
             <li class="blueli">1</li>
@@ -131,7 +131,7 @@
     color:#999999;
     padding-right:25%;
   }
-  .medcontent .medmain .page{
+  .medcontent .medmain .pageul{
     width:100%;
     height:30px;
     margin:30px 0px;

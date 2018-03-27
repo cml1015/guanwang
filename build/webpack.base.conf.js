@@ -84,5 +84,8 @@ module.exports = {
       $:"jquery",
       jQuery:"jquery"
     })
-  ]
+  ],
+  externals: {
+    'AMap': 'AMap'
+  }
 }

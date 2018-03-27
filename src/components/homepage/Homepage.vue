@@ -1,34 +1,6 @@
 <template>
   <div class="box homepage" id="fullPage">
     <div class="section banner">
-      <!--<div class="slide">-->
-        <!--<div class="play_div">-->
-          <!--<div class="play">-->
-            <!--<i class="iconfont icon-bofangshu"></i>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="slide">-->
-        <!--<div class="play_div">-->
-          <!--<div class="play">-->
-            <!--<i class="iconfont icon-bofangshu"></i>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="slide">-->
-        <!--<div class="play_div">-->
-          <!--<div class="play">-->
-            <!--<i class="iconfont icon-bofangshu"></i>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="slide">-->
-          <!--<div class="play_div">-->
-            <!--<div class="play">-->
-              <!--<i class="iconfont icon-bofangshu"></i>-->
-            <!--</div>-->
-          <!--</div>-->
-      <!--</div>-->
     </div>
     <div class="section two">
       <div class="content">
@@ -163,22 +135,25 @@
 </template>
 
 <script>
-  //import "../../../static/js/jquery-1.8.3.min"
-  //import "../../../static/js/jquery.easing.1.3"
-  //import "../../../static/js/jquery.scrollify.min"
-
+  // import "./jquery-1.10.1.min.js"
+  // import "./jquery.fullpage.js"
+  // import "./jquery.fullPage.css"
+    // $(function(){
+    //   $("#fullPage").fullpage({
+    //     scrollingSpeed:500,//滚动的速度
+    //     navigationPosition:"right",//项目导航
+    //     navigation:true,//是否显示项目导航
+    //     navigationColor:"#fff",//项目导航的颜色
+    //     slidesNavigation:true, //是否显示左右滑块的导航
+    //     controlArrowColor:"transparent",
+    //     paddingTop:"100px"
+    //   });
+    // })
     export default {
         created(){
-          //this.homepage();
           this.menu();
         },
         methods:{
-        //     homepage(){
-        //         $('.section').css({'height': $(window).height()});
-        //         $.scrollify({
-        //           section: '.section'
-        //         });
-        //     },
             menu() {
               window.scrollTo(0,0);
             }

@@ -9,7 +9,7 @@
               <h4>{{item.title}}</h4>
               <div></div>
               <p>{{item.content}}</p>
-              <button @click="linkDetails(item.id)">了解更多<i class="iconfont icon-iconfontjiantou2"></i></button>
+              <button><router-link  :to="{name:'Prolist',params:{id:item.id}}">了解更多<i class="iconfont icon-iconfontjiantou2"></i></router-link></button>
             </dd>
           </dl>
         </div>
@@ -32,7 +32,7 @@
         },
         created(){
             this.menu();
-            this.$http.get('http://localhost:8080/api/data').then((response) => {
+            this.$http.get('http://192.168.1.140:8080/api/data').then((response) => {
               this.list=response.data
               //console.log(this.list.data)
             })
@@ -40,10 +40,6 @@
         methods:{
             menu(){
               window.scrollTo(0,0)
-            },
-            linkDetails(id){
-              //console.log(index)
-              this.$router.push({path:'/Prolist?id='+id+''})
             }
         }
 
@@ -58,6 +54,10 @@
   a{
     color:#fff;
     text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    padding-top: 6px;
   }
   .Productpresentation{
     width:100%;
